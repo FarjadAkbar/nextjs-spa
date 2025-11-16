@@ -8,8 +8,8 @@ export default function Blog() {
   const featuredPosts = blogs.slice(0, 3);
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 px-4 md:px-8 bg-gray-50 w-full">
+      <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
