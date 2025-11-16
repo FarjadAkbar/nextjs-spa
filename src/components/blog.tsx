@@ -2,34 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { ArrowRight } from 'lucide-react'
+import { blogs } from '@/data/blog';
 
 export default function Blog() {
-  const blogPosts = [
-    {
-      id: 1,
-      image: '/blog/post-1.png',
-      title: 'Amet minim mollit non deserunt',
-      description: 'Deserunt ullamco est minim mollit non deserunt cupidatat. Ullamco est sit adipisicing dolor do amet sint.',
-      date: '15 Sep 2021',
-      tags: ['tips', 'news'],
-    },
-    {
-      id: 2,
-      image: '/blog/post-2.png',
-      title: 'Amet minim mollit non deserunt',
-      description: 'Deserunt ullamco est minim mollit non deserunt cupidatat. Ullamco est sit adipisicing dolor do amet sint.',
-      date: '10 Aug 2021',
-      tags: ['news', 'tips'],
-    },
-    {
-      id: 3,
-      image: '/blog/post-3.png',
-      title: 'Amet minim mollit non deserunt',
-      description: 'Deserunt ullamco est minim mollit non deserunt cupidatat. Ullamco est sit adipisicing dolor do amet sint.',
-      date: '15 Sep 2022',
-      tags: ['tips', 'news'],
-    },
-  ]
+  const featuredPosts = blogs.slice(0, 3);
 
   return (
     <section className="py-16 px-4 md:px-8 bg-gray-50">
@@ -43,7 +19,7 @@ export default function Blog() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {blogPosts.map((post) => (
+          {featuredPosts.map((post) => (
             <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               {/* Blog Image */}
               <div className="relative w-full h-48 overflow-hidden bg-gray-200">
@@ -79,11 +55,11 @@ export default function Blog() {
 
                 {/* Description */}
                 <p className="text-sm text-gray-600 mb-4">
-                  {post.description}
+                  {post.excerpt}
                 </p>
 
                 {/* Read More Link */}
-                <Link href="#" className="text-purple-600 font-semibold text-sm hover:text-purple-700 transition-colors">
+                <Link href={`/blogs/${post.slug}`} className="text-purple-600 font-semibold text-sm hover:text-purple-700 transition-colors">
                   Read More
                 </Link>
               </div>
@@ -92,12 +68,12 @@ export default function Blog() {
         </div>
 
         {/* View All Button */}
-        <div className="flex justify-center">
+        <Link href={"/blogs"} className="flex justify-center">
           <Button variant="roundedGreen" size="roundedGreen">
             View All
             <ArrowRight className="ml-3 size-5" />
           </Button>
-        </div>
+        </Link>
       </div>
     </section>
   )

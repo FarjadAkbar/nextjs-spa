@@ -4,7 +4,6 @@ import { motion, Variants } from 'framer-motion'
 import dynamic from 'next/dynamic'
 
 // Dynamically import components that might use client-side features
-const Header = dynamic(() => import('@/components/header'), { ssr: true })
 const Hero = dynamic(() => import('@/components/hero'), { ssr: true })
 const Features = dynamic(() => import('@/components/features'), { ssr: true })
 const HowItWorks = dynamic(() => import('@/components/how-it-works'), { ssr: true })
@@ -13,7 +12,6 @@ const DriveOrders = dynamic(() => import('@/components/drive-orders'), { ssr: tr
 const Pricing = dynamic(() => import('@/components/pricing'), { ssr: true })
 const CTA = dynamic(() => import('@/components/cta'), { ssr: true })
 const Blog = dynamic(() => import('@/components/blog'), { ssr: true })
-const Footer = dynamic(() => import('@/components/footer'), { ssr: true })
 const FAQ = dynamic(() => import('@/components/faqs'), { ssr: true })
 
 const fadeInUp: Variants = {
@@ -54,8 +52,6 @@ const AnimatedSection = ({ children, id, index = 0 }: {
 export default function Home() {
   return (
     <main>
-      <Header />
-      
       <AnimatedSection id="home">
         <Hero />
       </AnimatedSection>
@@ -91,8 +87,6 @@ export default function Home() {
       <AnimatedSection id="blog" index={8}>
         <Blog />
       </AnimatedSection>
-      
-      <Footer />
     </main>
   )
 }
