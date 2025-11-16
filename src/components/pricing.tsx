@@ -1,0 +1,100 @@
+import { Check } from 'lucide-react'
+
+export default function Pricing() {
+  const plans = [
+    {
+      name: 'Basic Package',
+      subtitle: 'Website Only',
+      price: 199,
+      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
+      buttonText: 'text-white',
+      features: [
+        'Commission-free web ordering',
+        'Syncs with your POS',
+        'Custom-branded website',
+        'Menu hosting on your domain',
+        'Unlimited orders',
+        '2 rounds of revisions for setup',
+      ],
+    },
+    {
+      name: 'Standard',
+      subtitle: 'Website + Mobile App',
+      price: 299,
+      accent: 'bg-gradient-to-br from-purple-600 to-purple-700',
+      buttonColor: 'bg-white hover:bg-gray-100',
+      buttonText: 'text-purple-600',
+      features: [
+        'Everything in Basic',
+        'Custom-branded iOS app',
+        'Direct push notifications',
+        'In-app reordering',
+        'QR-based table ordering',
+        'Apple Pay & Google Pay support',
+        'Priority support',
+        '4-5 rounds of revisions during setup',
+      ],
+      featured: true,
+    },
+  ]
+
+  return (
+    <section className="py-16 md:py-20 px-4 md:px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-foreground mb-2">
+            Simple Pricing —{' '}
+            <span className="text-purple-600">Built for Independent</span>
+            <br />
+            Restaurants
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`rounded-xl p-8 md:p-10 transition-transform ${
+                plan.featured
+                  ? `${plan.accent} text-white shadow-lg`
+                  : 'bg-gray-50 border border-gray-200'
+              }`}
+            >
+              <h3 className="text-lg md:text-xl font-bold mb-1">{plan.name}</h3>
+              <p className={`text-xs md:text-sm mb-6 ${plan.featured ? 'text-white/70' : 'text-gray-600'}`}>
+                {plan.subtitle}
+              </p>
+
+              <div className="flex items-baseline gap-2 mb-6 md:mb-8">
+                <span className="text-4xl md:text-5xl font-bold">${plan.price}</span>
+                <span className={`text-sm ${plan.featured ? 'text-white/80' : 'text-gray-600'}`}>
+                  /month
+                </span>
+              </div>
+
+              <button
+                className={`w-full ${plan.buttonColor} ${plan.buttonText} py-3 px-6 rounded-full font-semibold text-sm md:text-base mb-8 transition-colors`}
+              >
+                Get Price Estimate
+              </button>
+
+              <ul className="space-y-3 md:space-y-4">
+                {plan.features.map((feature, idx) => (
+                  <li
+                    key={idx}
+                    className={`flex items-start gap-3 text-sm md:text-base ${
+                      plan.featured ? 'text-white' : 'text-gray-700'
+                    }`}
+                  >
+                    <Check className={`w-5 h-5 flex-shrink-0 ${plan.featured ? 'text-white' : 'text-purple-600'}`} />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
