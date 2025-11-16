@@ -14,12 +14,10 @@ export default function Footer() {
     phone: '',
     restaurantName: '',
     posSystem: '',
-})
-
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     console.log('Form submitted:', formData)
   }
 
@@ -35,14 +33,14 @@ export default function Footer() {
     <footer className="shadow-sm bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-6 pb-6 pt-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
           {/* Left Column - Contact Info */}
           <div>
-            <h2 className="text-3xl font-semibold mb-8">
+            <h2 className="text-3xl sm:text-4xl font-semibold mb-8">
               Built with Barakah<br />
               Commission-Free <span className="text-purple-700">Restaurant Tech</span>
             </h2>
-            
+
             {/* Contact Items */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -54,7 +52,7 @@ export default function Footer() {
                   <p className="font-medium">info@barakah.com</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-400">
                   <Phone className="w-4 h-4 text-white" />
@@ -68,96 +66,92 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className='bg-slate-800/35 p-6 rounded-lg'>
-            <h3 className="text-2xl font-bold mb-8">
+          <div className="bg-slate-800/35 p-6 rounded-lg">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-8">
               Let's Start the <span className="text-purple-400">Conversation</span>
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
-  {/* 2 Columns Row 1 */}
-  <div className="grid grid-cols-2 gap-4">
-    <input
-      type="text"
-      name="firstName"
-      placeholder="First Name"
-      value={formData.firstName}
-      onChange={handleChange}
-      className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
-    />
-    <input
-      type="text"
-      name="lastName"
-      placeholder="Last Name"
-      value={formData.lastName}
-      onChange={handleChange}
-      className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
-    />
-  </div>
+              {/* Row 1 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
+                />
+              </div>
 
-  {/* 2 Columns Row 2 */}
-  <div className="grid grid-cols-2 gap-4">
-    <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      value={formData.email}
-      onChange={handleChange}
-      className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
-    />
-    <input
-      type="text"
-      name="phone"
-      placeholder="Phone"
-      value={formData.phone}
-      onChange={handleChange}
-      className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
-    />
-  </div>
+              {/* Row 2 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
+                />
+              </div>
 
-  {/* 2 Columns Row 3 */}
-  <div className="grid grid-cols-2 gap-4">
-    <input
-      type="text"
-      name="restaurantName"
-      placeholder="Restaurant Name"
-      value={formData.restaurantName}
-      onChange={handleChange}
-      className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
-    />
-    <input
-      type="text"
-      name="posSystem"
-      placeholder="POS System"
-      value={formData.posSystem}
-      onChange={handleChange}
-      className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
-    />
-  </div>
+              {/* Row 3 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="restaurantName"
+                  placeholder="Restaurant Name"
+                  value={formData.restaurantName}
+                  onChange={handleChange}
+                  className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
+                />
+                <input
+                  type="text"
+                  name="posSystem"
+                  placeholder="POS System"
+                  value={formData.posSystem}
+                  onChange={handleChange}
+                  className="px-4 py-3 bg-slate-900 rounded-full focus:outline-none text-white placeholder-gray-500"
+                />
+              </div>
 
-  <Button variant="roundedGreen" size="roundedGreen">
-              Send
-              <ArrowRight className="ml-3 size-5" />
-            </Button>
-</form>
-
+              <Button variant="roundedGreen" size="roundedGreen" className="w-full sm:w-auto flex items-center justify-center">
+                Send
+                <ArrowRight className="ml-3 w-5 h-5" />
+              </Button>
+            </form>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <Image
-            src="/logo.png"
-            alt="Footer Divider"
-            width={150}
-            height={150}
-        />
-        <div className="border-t border-slate-800 pt-8 flex items-center justify-between">
-          {/* Logo and Copyright */}
-            <p className="text-sm text-gray-400">
-              Copyright © 2025 Barakah. All Rights Reserved
-            </p>
+        <Image src="/logo.png" alt="Footer Logo" width={150} height={150} className="mx-auto sm:mx-0" />
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-slate-800 pt-8 gap-4">
+          {/* Logo */}
+
+          {/* Copyright */}
+          <p className="text-sm text-gray-400 text-center sm:text-left">
+            Copyright © 2025 Barakah. All Rights Reserved
+          </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center sm:justify-start gap-4">
             <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
               <Facebook className="w-5 h-5" />
             </a>
