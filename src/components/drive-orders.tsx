@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function DriveOrders() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-purple-50 to-blue-50">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-purple-50 to-blue-50 w-full">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
