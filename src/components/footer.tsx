@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Mail, Phone, Facebook, Twitter, Linkedin, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import Image from 'next/image'
+import { toast } from 'sonner' 
 
 export default function Footer() {
   const [formData, setFormData] = useState({
@@ -16,17 +17,49 @@ export default function Footer() {
     posSystem: '',
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }))
+  }
+
+  const validateEmail = (email: string) => /\S+@\S+\.\S+/.test(email)
+  const validatePhone = (phone: string) => /^\+?\d{6,15}$/.test(phone)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const { firstName, lastName, email, phone, restaurantName, posSystem } = formData
+
+    if (!firstName || !lastName || !email || !phone || !restaurantName || !posSystem) {
+      toast.error('Please fill out all fields.')
+      return
+    }
+
+    if (!validateEmail(email)) {
+      toast.error('Please enter a valid email address.')
+      return
+    }
+
+    if (!validatePhone(phone)) {
+      toast.error('Please enter a valid phone number.')
+      return
+    }
+
+    // Form is valid
+    toast.success('Your message has been sent successfully.')
+
+    console.log('Form submitted:', formData)
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      restaurantName: '',
+      posSystem: '',
+    })
   }
 
   return (
