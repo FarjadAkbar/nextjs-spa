@@ -87,13 +87,14 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a
+                <Link
                   href={`${isHome ? '' : '/'}#${item.id}`}
+                  scroll={false} 
                   onClick={(e) => handleNavClick(e, item.id)}
                   className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer px-3 py-2 rounded-md"
                 >
                   {item.label}
-                </a>
+                </Link>
               </motion.div>
             ))}
           </nav>
@@ -151,14 +152,15 @@ export default function Header() {
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.id}
                   href={`${isHome ? '' : '/'}#${item.id}`}
+                  scroll={false} 
                   onClick={(e) => handleNavClick(e, item.id)}
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 rounded-md"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 pb-2">
                 <Button 
