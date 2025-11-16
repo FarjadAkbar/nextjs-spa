@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Mail, Phone, Facebook, Twitter, Linkedin } from 'lucide-react'
+import { Mail, Phone, Facebook, Twitter, Linkedin, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import Image from 'next/image'
 
@@ -32,7 +32,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t-4 border-blue-400 bg-slate-900 text-white">
+    <footer className="shadow-sm bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-6 pb-6 pt-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 gap-12 mb-12">
@@ -134,13 +134,10 @@ export default function Footer() {
     />
   </div>
 
-  <Button
-    type="submit"
-    className="rounded-full bg-emerald-400 text-white font-medium hover:bg-emerald-500 transition-colors"
-  >
-    Submit
-    <span className="ml-3">→</span>
-  </Button>
+  <Button variant="roundedGreen" size="roundedGreen">
+              Send
+              <ArrowRight className="ml-3 size-5" />
+            </Button>
 </form>
 
           </div>

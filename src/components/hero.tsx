@@ -1,11 +1,12 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="gradient-section py-12 md:py-20">
-      <div className="mx-auto max-w-4xl px-4 md:px-6 text-center">
+    <section className="gradient-section py-12 md:py-20 w-full">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
           Own Your{' '}
           <span className="text-purple-600">Ordering</span>
@@ -18,9 +19,9 @@ export default function Hero() {
         </p>
 
         <div className="mt-6 md:mt-8 flex justify-center">
-          <Button className="rounded-full bg-emerald-400 px-6 md:px-8 py-2 md:py-3 text-white hover:bg-emerald-500 transition-colors flex items-center gap-2 text-sm md:text-base">
+          <Button variant="roundedGreen" size="roundedGreen">
             Get Free Trial
-            <span>→</span>
+            <ArrowRight className="ml-3 size-5" />
           </Button>
         </div>
       </div>

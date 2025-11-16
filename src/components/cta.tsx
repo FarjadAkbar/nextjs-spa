@@ -1,5 +1,6 @@
 import { url } from "inspector";
 import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
   return (
@@ -19,9 +20,9 @@ export default function CTA() {
         <p className="text-base md:text-lg text-gray-100 mb-8">
           See how easy it is to own your customer relationships and keep every dollar you earn.
         </p>
-         <Button className="mx-auto rounded-full bg-emerald-400 px-6 md:px-8 py-2 md:py-3 text-white hover:bg-emerald-500 transition-colors flex items-center gap-2 text-sm md:text-base">
+         <Button variant="roundedGreen" size="roundedGreen">
             Get Free Trial
-            <span className="ml-3">→</span>
+            <ArrowRight className="ml-3 size-5" />
           </Button>
       </div>
     </section>
