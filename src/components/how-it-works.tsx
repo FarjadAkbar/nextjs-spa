@@ -24,7 +24,7 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white py-16 md:py-20 w-full">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {/* Section Header */}
         <div className="mb-4 md:mb-6 text-center">

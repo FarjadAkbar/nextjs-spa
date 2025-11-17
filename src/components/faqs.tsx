@@ -27,7 +27,7 @@ export default function FAQ() {
   ]
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 bg-white">
+    <section className="py-16 px-4 md:px-8 lg:px-16 bg-white w-full">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Image Section */}

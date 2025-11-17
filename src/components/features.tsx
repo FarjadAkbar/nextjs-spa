@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Features() {
   return (
-    <section className="gradient-section py-16 md:py-20">
+    <section className="gradient-section py-16 md:py-20 w-full">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
 
         {/* Outer Grid — 3 columns */}
