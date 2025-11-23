@@ -1,55 +1,18 @@
 import { useLeadFormModal } from '@/hooks/useLeadFormModal'
 import { Check } from 'lucide-react'
+import en from '@/locales/en.json'
 
 export default function Pricing() {
   const { setPopupOpen } = useLeadFormModal()
-  const plans = [
-    {
-      name: 'Basic Package',
-      subtitle: 'Website Only',
-      price: 199,
-      buttonColor: 'bg-emerald-500 hover:bg-emerald-600',
-      buttonText: 'text-white',
-      features: [
-        'Commission-free web ordering',
-        'Syncs with your POS',
-        'Custom-branded website',
-        'Menu hosting on your domain',
-        'Unlimited orders',
-        '2 rounds of revisions for setup',
-      ],
-    },
-    {
-      name: 'Standard',
-      subtitle: 'Website + Mobile App',
-      price: 299,
-      accent: '/pricing-bg.png', // Pattern background
-      buttonColor: 'bg-white hover:bg-gray-100',
-      buttonText: 'text-purple-600',
-      features: [
-        'Everything in Basic',
-        'Custom-branded iOS app',
-        'Direct push notifications',
-        'In-app reordering',
-        'QR-based table ordering',
-        'Apple Pay & Google Pay support',
-        'Priority support',
-        '4-5 rounds of revisions during setup',
-      ],
-      featured: true,
-    },
-  ]
+  const { title, plans } = en.pricing
 
   return (
     <section className="py-16 md:py-20 px-4 md:px-6 bg-white w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-foreground mb-2">
-            Simple Pricing —{' '}
-            <span className="text-purple-600">Built for Independent</span>
-            <br />
-            Restaurants
-          </h2>
+          <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-foreground mb-2"
+          dangerouslySetInnerHTML={{ __html: title }}
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 import { leadFormSchema, LeadFormData } from '@/lib/lead-form-schema';
+import en from '@/locales/en.json';
 
 export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
   const [formData, setFormData] = useState<LeadFormData>({
@@ -45,11 +46,11 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
       const data = await res.json();
 
       if (!res.ok) {
-        toast.error(data.error || "Something went wrong");
+        toast.error(data.error || en.leadForm.validation.submissionError);
         return;
       }
 
-      toast.success("Submitted successfully!");
+      toast.success(en.leadForm.validation.submissionSuccess);
 
       if (onSuccess) onSuccess();
 
@@ -63,7 +64,7 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
         noofresturant: '',
       });
     } catch (error) {
-      toast.error("Failed to submit.");
+      toast.error(en.leadForm.validation.submissionError);
     } finally {
       setLoading(false);
     }
@@ -75,14 +76,14 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
           name="firstName"
-          placeholder="First Name"
+          placeholder={en.leadForm.form.firstName}
           value={formData.firstName}
           onChange={handleChange}
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
         />
         <input
           name="lastName"
-          placeholder="Last Name"
+          placeholder={en.leadForm.form.lastName}
           value={formData.lastName}
           onChange={handleChange}
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
@@ -92,14 +93,14 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
           name="email"
-          placeholder="Email"
+          placeholder={en.leadForm.form.email}
           value={formData.email}
           onChange={handleChange}
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
         />
         <input
           name="phone"
-          placeholder="Phone"
+          placeholder={en.leadForm.form.phone}
           value={formData.phone}
           onChange={handleChange}
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
@@ -109,14 +110,14 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
           name="restaurantName"
-          placeholder="Restaurant Name"
+          placeholder={en.leadForm.form.restaurantName}
           value={formData.restaurantName}
           onChange={handleChange}
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
         />
         <input
           name="posSystem"
-          placeholder="POS System"
+          placeholder={en.leadForm.form.posSystem}
           value={formData.posSystem}
           onChange={handleChange}
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
@@ -125,7 +126,7 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
 
       <input
         name="noofresturant"
-        placeholder="Number of Restaurants"
+        placeholder={en.leadForm.form.noOfRestaurants}
         value={formData.noofresturant}
         onChange={handleChange}
         className="px-4 py-3 bg-slate-900 rounded-full text-white w-full"
@@ -138,7 +139,7 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
         size="roundedGreen" 
         className="w-full sm:w-auto"
       >
-        {loading ? "Sending..." : "Send"}
+        {loading ? en.leadForm.form.submit.sending : en.leadForm.form.submit.default}
         {!loading && <ArrowRight className="ml-3 w-5 h-5" />}
       </Button>
     </form>

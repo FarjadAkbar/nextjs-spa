@@ -1,13 +1,14 @@
 import { z } from "zod";
+import en from "@/locales/en.json";
 
 export const leadFormSchema = z.object({
-  firstName: z.string().min(2, "First name is required"),
-  lastName: z.string().min(2, "Last name is required"),
-  email: z.string().email("Invalid email"),
-  phone: z.string().min(6, "Invalid phone number"),
-  restaurantName: z.string().min(2, "Restaurant name required"),
-  posSystem: z.string().min(1, "POS System is required"),
-  noofresturant: z.string().min(1, "Number of restaurants required"),
+  firstName: z.string().min(2, en.leadForm.validation.firstNameRequired),
+  lastName: z.string().min(2, en.leadForm.validation.lastNameRequired),
+  email: z.string().email(en.leadForm.validation.invalidEmail),
+  phone: z.string().min(6, en.leadForm.validation.invalidPhone),
+  restaurantName: z.string().min(2, en.leadForm.validation.restaurantNameRequired),
+  posSystem: z.string().min(1, en.leadForm.validation.posSystemRequired),
+  noofresturant: z.string().min(1, en.leadForm.validation.noOfRestaurantsRequired),
 });
 
 export type LeadFormData = z.infer<typeof leadFormSchema>;

@@ -1,0 +1,215 @@
+{
+  "header": {
+    "navItems": [
+      { "id": "home", "label": "Home" },
+      { "id": "how-it-works", "label": "How it Works" },
+      { "id": "testimonials", "label": "Testimonials" },
+      { "id": "pricing", "label": "Pricing" },
+      { "id": "faq", "label": "FAQ" },
+      { "id": "blog", "label": "Blog" },
+      { "id": "contact", "label": "Contact Us" }
+    ],
+    "cta":"Get Free Trial"
+  },
+  "hero": {
+    "title": "Own Your<span class='text-purple-600'>Ordering</span><br /><span class='text-purple-600'>Experience</span> — Commission-Free.",
+    "subtitle": "Launch your own branded restaurant app and online ordering site. Keep 100% of your profits and full control of your customer data.",
+    "cta": "Get Free Trial"
+  },
+  "leadForm": {
+    "title": "Start Your Free Trial 🚀",
+    "subtitle": "Unlock premium features, boost your productivity, and grow faster—no credit card required.",
+    "privacy": "Your information is safe and will never be shared.",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "restaurantName": "Restaurant Name",
+      "posSystem": "POS System",
+      "noOfRestaurants": "Number of Restaurants",
+      "submit": {
+        "sending": "Sending...",
+        "default": "Send"
+      }
+    },
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "invalidEmail": "Invalid email",
+      "invalidPhone": "Invalid phone number",
+      "restaurantNameRequired": "Restaurant name required",
+      "posSystemRequired": "POS System is required",
+      "noOfRestaurantsRequired": "Number of restaurants required",
+      "submissionError": "Failed to submit.",
+      "submissionSuccess": "Submitted successfully!"
+    }
+  },
+  "cta": {
+    "title": "Start Your Free Trial Today",
+    "subtitle": "See how easy it is to own your customer relationships and keep every dollar you earn.",
+    "button": "Get Free Trial"
+  },
+  "faq": {
+    "title": "Got Questions?<br/><span class='text-purple-600'>We've Got Answers.</span>",
+    "faqs": [
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit cards, digital wallets, and bank transfers. All transactions are secure and encrypted"
+        },
+        {
+          "question": "Can I customize my branded app?",
+          "answer": "Yes, you can fully customize your app with your branding, colors, logos, and menu items to match your restaurant identity"
+        },
+        {
+          "question": "How long does setup take?",
+          "answer": "Setup typically takes 24-48 hours. Our team will guide you through every step of the process"
+        },
+        {
+          "question": "Is there customer support available?",
+          "answer": "Yes, we offer 24/7 customer support via chat, email, and phone to help you with any questions"
+        }
+    ]
+  },
+  "howItWorks": {
+    "title": "How It <span class='text-purple-600'>Work</span>",
+    "subtitle": "Three Simple Steps to Get Started",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Share",
+        "highlight": "Your Menu",
+        "image": "/how-it-work/hover-1.png",
+        "description": "Send your menu. We create your **Stripe** account and map your POS."
+      },
+      {
+        "number": "02",
+        "title": "We Build",
+        "highlight": "Your Apps",
+        "image": "/how-it-work/hover-2.png",
+        "description": "Your **custom-branded website and iOS app** are created and configured."
+      },
+      {
+        "number": "03",
+        "title": "Go Live &",
+        "highlight": "Get Paid",
+        "image": "/how-it-work/hover-3.png",
+        "description": "Customers start ordering. **Payouts go to your Stripe**; orders **print on your POS"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple Pricing — <span class='text-purple-600'>Built for Independent</span><br />Restaurants",
+    "subtitle": "Choose the plan that works best for your business",
+    "plans": [
+      {
+        "name": "Basic Package",
+        "subtitle": "Website Only",
+        "price": 199,
+        "buttonColor": "bg-emerald-500 hover:bg-emerald-600",
+        "buttonText": "text-white",
+        "features": [
+          "Commission-free web ordering",
+          "Syncs with your POS",
+          "Custom-branded website",
+          "Menu hosting on your domain",
+          "Unlimited orders",
+          "2 rounds of revisions for setup"
+        ]
+      },
+      {
+        "name": "Standard",
+        "subtitle": "Website + Mobile App",
+        "price": 299,
+        "accent": "/pricing-bg.png",
+        "buttonColor": "bg-white hover:bg-gray-100",
+        "buttonText": "text-purple-600",
+        "features": [
+          "Everything in Basic",
+          "Custom-branded iOS app",
+          "Direct push notifications",
+          "In-app reordering",
+          "QR-based table ordering",
+          "Apple Pay & Google Pay support",
+          "Priority support",
+          "4-5 rounds of revisions during setup"
+        ],
+        "featured": true
+      } 
+    ]
+  },
+  "features": {
+    "item_1": {
+      "title": "Seamless<br />Integration, Zero<br />Tech Headaches",
+      "description": "Works directly with your existing POS — no extra tablets."
+    },
+    "item_2": {
+      "title": "Full Profits, Zero Commissions",
+      "description": "Stop losing 20-30% of every order to third-party delivery apps."
+    },
+    "item_3": {
+      "title": "Your Brand, Your Customers",
+      "description": "Build loyalty with your own app and full access to customer data."
+    },
+    "item_4": {
+      "title": "Satisfied Customer",
+      "likes": "15,200",
+      "description": "Lorem ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    "item_5": {
+      "title": "Direct Online Orders",
+      "description": "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+      "profit": "+4201",
+      "growth": "↑ 32% this month"
+    }
+  },
+  "testimonials": {
+    "title": "Our <span class='text-purple-600'>Testimonials</span>",
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "role": "CEO, Invisalead",
+        "text": "Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week."
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "role": "Marketing Manager, Invisalead",
+        "text": "Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week."
+      },
+      {
+        "id": 3,
+        "name": "John Doe",
+        "role": "CEO, Invisalead",
+        "text": "Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week."
+      },
+      {
+        "id": 4,
+        "name": "Jane Smith",
+        "role": "Marketing Manager, Invisalead",
+        "text": "Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week."
+      }
+    ]
+  },
+  "driveOrders": {
+    "title": "We Help You <span class='text-purple-600'>Drive More</span><br/>Direct Orders",
+    "description": "When you launch with Barakah, you also get a marketing kit to help customers switch from third-party apps to your own.",
+    "list": [
+      "Order Direct, Support Local” counter signs",
+      "Window stickers for takeout visibility",
+      "Delivery bag inserts for Uber Eats / DoorDash orders promoting your direct app",
+      "Printable flyers and social media templates",
+      "Order forms, banners (paid digital for the moment)",
+      "WhatsApp stickers for customer outreach",
+      "Flyers, posters & social media templates"
+    ]
+  },
+  "footer": {
+    "title": "Built with Barakah<br />Commission-Free <span class='text-purple-700'>Restaurant Tech</span>",
+    "copyright": "Copyright © 2025 Barakah. All Rights Reserved",
+    "lead": "Let's Start the <span class='text-purple-400'>Conversation</span>",
+    "email": "info@barakah.com",
+    "phone": "T: +65 6338 2061 M: +65 91501277"
+  }
+}

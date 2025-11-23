@@ -9,22 +9,14 @@ import { scrollToSection } from '@/lib/smooth-scroll'
 import { ArrowRight, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useLeadFormModal } from '@/hooks/useLeadFormModal'
+import en from '@/locales/en.json'
 
 export default function Header() {
   const { setPopupOpen } = useLeadFormModal()
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === '/'
-
-  const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'How it Works', id: 'how-it-works' },
-    { label: 'Testimonials', id: 'testimonials' },
-    { label: 'Pricing', id: 'pricing' },
-    { label: 'FAQ', id: 'faq' },
-    { label: 'Blog', id: 'blog' },
-    { label: 'Contact Us', id: 'contact' },
-  ]
+  const { navItems, cta } = en.header
 
   const handleNavClick = (e: React.MouseEvent, id: string) => {
     if (isHome) {
@@ -117,7 +109,7 @@ export default function Header() {
                 onClick={() => setPopupOpen(true)}
                 className="whitespace-nowrap"
               >
-                Get Free Trial
+                {cta}
                 <ArrowRight className="ml-2 size-4" />
               </Button>
             </motion.div>
@@ -174,7 +166,7 @@ export default function Header() {
                   }}
                   className="w-full justify-center"
                 >
-                  Get Free Trial
+                  {cta}
                   <ArrowRight className="ml-2 size-4" />
                 </Button>
               </div>

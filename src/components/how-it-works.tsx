@@ -1,38 +1,18 @@
+import en from '@/locales/en.json'
+
 export default function HowItWorks() {
-  const steps = [
-    {
-      number: '01',
-      title: 'Share',
-      highlight: 'Your Menu',
-      image: "/how-it-work/hover-1.png",
-      description: 'Send us your menu. We create your **Stripe** account and map your POS.'
-    },
-    {
-      number: '02',
-      title: 'We Build',
-      highlight: 'Your Apps',
-      image: "/how-it-work/hover-2.png",
-      description: 'Your **custom-branded website and iOS app** are created and configured.'
-    },
-    {
-      number: '03',
-      title: 'Go Live &',
-      highlight: 'Get Paid',
-      image: "/how-it-work/hover-3.png",
-      description: 'Customers start ordering. **Payouts go to your Stripe**; orders **print on your POS'
-    }
-  ]
+  const { title, subtitle, steps } = en.howItWorks
 
   return (
     <section className="bg-white py-16 md:py-20 w-full">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {/* Section Header */}
         <div className="mb-4 md:mb-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
-            How It <span className="text-purple-600">Work</span>
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-2"
+          dangerouslySetInnerHTML={{ __html: title }}
+          />
           <p className="text-sm md:text-base text-gray-600">
-            Three Simple Steps to Get Started
+            {subtitle}
           </p>
         </div>
 

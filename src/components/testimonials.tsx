@@ -1,39 +1,16 @@
 import { Quote } from 'lucide-react'
+import en from "@/locales/en.json";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      id: 1,
-      text: "“Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week.”",
-      name: "Petro Milosydi",
-      role: "on what he learned when",
-    },
-    {
-      id: 2,
-      text: "“Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week.”",
-      name: "Petro Milosydi",
-      role: "on what he learned when",
-    },
-    {
-      id: 3,
-      text: "“Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week.”",
-      name: "Petro Milosydi",
-      role: "on what he learned when",
-    },
-    {
-      id: 4,
-      text: "“Within 3 months of using Invisalead, we saw a 3x increase in new patient bookings. The automation alone saved us hours every week.”",
-      name: "Petro Milosydi",
-      role: "on what he learned when",
-    },
-  ]
+  const { title, testimonials } = en.testimonials;
+
 
   return (
     <section className="py-16 md:py-20 px-4 md:px-6 bg-white w-full">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-2xl md:text-3xl font-bold mb-12 md:mb-16">
-          Our <span className="text-purple-600">Testimonials</span>
-        </h2>
+        <h2 className="text-center text-2xl md:text-3xl font-bold mb-12 md:mb-16"
+        dangerouslySetInnerHTML={{ __html: title }}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {testimonials.map((testimonial) => (

@@ -3,6 +3,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
 import LeadForm from "./lead-form";
+import en from "@/locales/en.json";
 
 export default function LeadFormModal({
   open,
@@ -27,12 +28,11 @@ export default function LeadFormModal({
             >
               <DialogHeader className="space-y-2">
                 <DialogTitle className="text-3xl font-extrabold">
-                  Start Your Free Trial 🚀
+                  {en.leadForm.title}
                 </DialogTitle>
 
                 <p className="text-white/70 text-sm">
-                  Unlock premium features, boost your productivity, and grow faster—
-                  no credit card required.
+                  {en.leadForm.subtitle}
                 </p>
               </DialogHeader>
 
@@ -41,7 +41,7 @@ export default function LeadFormModal({
               </div>
 
               <div className="mt-6 text-center text-xs text-white/40">
-                Your information is safe and will never be shared.
+                {en.leadForm.privacy}
               </div>
             </motion.div>
           </DialogContent>

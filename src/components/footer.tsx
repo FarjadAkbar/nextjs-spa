@@ -3,8 +3,10 @@
 import { Mail, Phone, Facebook, Twitter, Linkedin, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import LeadForm from './ui/lead-form'
+import en from '@/locales/en.json'
 
 export default function Footer() {
+  const { title, email, phone, lead, copyright } = en.footer
   return (
     <footer className="shadow-sm bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-6 pb-6 pt-16">
@@ -12,11 +14,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
           {/* Left Column - Contact Info */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-8">
-              Built with Barakah<br />
-              Commission-Free <span className="text-purple-700">Restaurant Tech</span>
-            </h2>
-
+            <h2 className="text-3xl sm:text-4xl font-semibold mb-8"
+            dangerouslySetInnerHTML={{ __html: title }}
+            />
+             
             {/* Contact Items */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -25,7 +26,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
-                  <p className="font-medium">info@barakah.com</p>
+                  <p className="font-medium">{email}</p>
                 </div>
               </div>
 
@@ -35,7 +36,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Phone</p>
-                  <p className="font-medium">T: +65 6338 2061 M: +65 91501277</p>
+                  <p className="font-medium">{phone}</p>
                 </div>
               </div>
             </div>
@@ -43,10 +44,9 @@ export default function Footer() {
 
           {/* Right Column - Contact Form */}
           <div className="bg-slate-800/35 p-6 rounded-lg">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-8">
-              Let's Start the <span className="text-purple-400">Conversation</span>
-            </h3>
-
+            <h3 className="text-2xl sm:text-3xl font-bold mb-8"
+            dangerouslySetInnerHTML={{ __html: lead }}
+            />
             <LeadForm />
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-sm text-gray-400 text-center sm:text-left">
-            Copyright © 2025 Barakah. All Rights Reserved
+            {copyright}
           </p>
 
           {/* Social Icons */}
