@@ -1,9 +1,9 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import { useLeadFormModal } from '@/hooks/useLeadFormModal'
 
 export default function Hero() {
+  const { setPopupOpen } = useLeadFormModal()
   return (
     <section className="gradient-section py-12 md:py-20 w-full">
       <div className="mx-auto max-w-7xl py-6 px-4 md:px-6 text-center" style={{backgroundImage: 'url(vector.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
@@ -19,7 +19,7 @@ export default function Hero() {
         </p>
 
         <div className="mt-6 md:mt-8 flex justify-center">
-          <Button variant="roundedGreen" size="roundedGreen">
+          <Button variant="roundedGreen" size="roundedGreen" onClick={() => setPopupOpen(true)}>
             Get Free Trial
             <ArrowRight className="ml-3 size-5" />
           </Button>

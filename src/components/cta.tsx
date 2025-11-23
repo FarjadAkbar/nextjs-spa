@@ -1,8 +1,9 @@
-import { url } from "inspector";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLeadFormModal } from "@/hooks/useLeadFormModal";
 
 export default function CTA() {
+  const { setPopupOpen } = useLeadFormModal()
   return (
     <section
         className="w-full py-16"
@@ -20,7 +21,7 @@ export default function CTA() {
         <p className="text-base md:text-lg text-gray-100 mb-8">
           See how easy it is to own your customer relationships and keep every dollar you earn.
         </p>
-         <Button variant="roundedGreen" size="roundedGreen">
+         <Button variant="roundedGreen" size="roundedGreen" onClick={() => setPopupOpen(true)}>
             Get Free Trial
             <ArrowRight className="ml-3 size-5" />
           </Button>

@@ -8,8 +8,10 @@ import Image from 'next/image'
 import { scrollToSection } from '@/lib/smooth-scroll'
 import { ArrowRight, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useLeadFormModal } from '@/hooks/useLeadFormModal'
 
 export default function Header() {
+  const { setPopupOpen } = useLeadFormModal()
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === '/'
@@ -112,7 +114,7 @@ export default function Header() {
               <Button 
                 variant="roundedGreen" 
                 size="roundedGreen" 
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => setPopupOpen(true)}
                 className="whitespace-nowrap"
               >
                 Get Free Trial
@@ -167,7 +169,7 @@ export default function Header() {
                   variant="roundedGreen" 
                   size="roundedGreen" 
                   onClick={() => {
-                    scrollToSection('pricing')
+                    setPopupOpen(true)
                     setIsOpen(false)
                   }}
                   className="w-full justify-center"

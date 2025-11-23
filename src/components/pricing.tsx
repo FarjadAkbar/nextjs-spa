@@ -1,6 +1,8 @@
+import { useLeadFormModal } from '@/hooks/useLeadFormModal'
 import { Check } from 'lucide-react'
 
 export default function Pricing() {
+  const { setPopupOpen } = useLeadFormModal()
   const plans = [
     {
       name: 'Basic Package',
@@ -86,7 +88,7 @@ export default function Pricing() {
                 </div>
 
                 <button
-                  className={`w-full ${plan.buttonColor} ${plan.buttonText} py-3 px-6 rounded-full font-semibold text-sm md:text-base mb-8 transition-colors`}
+                  className={`w-full ${plan.buttonColor} ${plan.buttonText} py-3 px-6 rounded-full font-semibold text-sm md:text-base mb-8 transition-colors`} onClick={() => setPopupOpen(true)}
                 >
                   Get Price Estimate
                 </button>
