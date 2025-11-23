@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
+import { leadFormSchema, LeadFormData } from '@/lib/lead-form-schema';
 
 export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<LeadFormData>({
     firstName: '',
     lastName: '',
     email: '',
@@ -16,55 +17,63 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
     noofresturant: '',
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const validateEmail = (email: string) => /\S+@\S+\.\S+/.test(email);
-  const validatePhone = (phone: string) => /^\+?\d{6,15}$/.test(phone);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { firstName, lastName, email, phone, restaurantName, posSystem } = formData;
-
-    if (!firstName || !lastName || !email || !phone || !restaurantName || !posSystem) {
-      toast.error('Please fill out all fields.');
+    // Zod validation
+    const validation = leadFormSchema.safeParse(formData);
+    if (!validation.success) {
+      toast.error(validation.error.issues[0].message);
       return;
     }
 
-    if (!validateEmail(email)) {
-      toast.error('Please enter a valid email address.');
-      return;
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.error || "Something went wrong");
+        return;
+      }
+
+      toast.success("Submitted successfully!");
+
+      if (onSuccess) onSuccess();
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        restaurantName: '',
+        posSystem: '',
+        noofresturant: '',
+      });
+    } catch (error) {
+      toast.error("Failed to submit.");
+    } finally {
+      setLoading(false);
     }
-
-    if (!validatePhone(phone)) {
-      toast.error('Please enter a valid phone number.');
-      return;
-    }
-
-    toast.success('Your message has been sent successfully.');
-
-    if (onSuccess) onSuccess();
-
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      restaurantName: '',
-      posSystem: '',
-      noofresturant: '',
-    });
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Row 1 */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
-          type="text"
           name="firstName"
           placeholder="First Name"
           value={formData.firstName}
@@ -72,7 +81,6 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
         />
         <input
-          type="text"
           name="lastName"
           placeholder="Last Name"
           value={formData.lastName}
@@ -81,10 +89,8 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
         />
       </div>
 
-      {/* Row 2 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
-          type="email"
           name="email"
           placeholder="Email"
           value={formData.email}
@@ -92,7 +98,6 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
         />
         <input
-          type="text"
           name="phone"
           placeholder="Phone"
           value={formData.phone}
@@ -101,10 +106,8 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
         />
       </div>
 
-      {/* Row 3 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
-          type="text"
           name="restaurantName"
           placeholder="Restaurant Name"
           value={formData.restaurantName}
@@ -112,7 +115,6 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
           className="px-4 py-3 bg-slate-900 rounded-full text-white"
         />
         <input
-          type="text"
           name="posSystem"
           placeholder="POS System"
           value={formData.posSystem}
@@ -121,9 +123,7 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
         />
       </div>
 
-      {/* Row 4 */}
       <input
-        type="text"
         name="noofresturant"
         placeholder="Number of Restaurants"
         value={formData.noofresturant}
@@ -131,9 +131,15 @@ export default function LeadForm({ onSuccess }: { onSuccess?: () => void }) {
         className="px-4 py-3 bg-slate-900 rounded-full text-white w-full"
       />
 
-      <Button variant="roundedGreen" size="roundedGreen" className="w-full sm:w-auto">
-        Send
-        <ArrowRight className="ml-3 w-5 h-5" />
+      <Button 
+        type="submit" 
+        disabled={loading}
+        variant="roundedGreen" 
+        size="roundedGreen" 
+        className="w-full sm:w-auto"
+      >
+        {loading ? "Sending..." : "Send"}
+        {!loading && <ArrowRight className="ml-3 w-5 h-5" />}
       </Button>
     </form>
   );
