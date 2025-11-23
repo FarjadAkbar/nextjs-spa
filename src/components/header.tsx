@@ -59,7 +59,7 @@ export default function Header() {
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
         className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3"
       >
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <motion.div 
             className="flex-shrink-0"
@@ -72,7 +72,7 @@ export default function Header() {
                 alt="Logo"
                 width={120}
                 height={32}
-                className="h-8 w-auto"
+                className="h-10 w-auto"
                 priority
               />
             </Link>
